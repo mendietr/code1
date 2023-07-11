@@ -50,6 +50,13 @@ router.get("/db/edit/:id", async (req, res) =>
     res.render("edit", {data});
 });
 
+router.get("/db/view/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const data = await Cod.findById(id);
+    res.render("dbviewer", {data});
+});
+
 router.get("/db/delete/:id", async (req, res) =>
 {
     const {id} = req.params;
